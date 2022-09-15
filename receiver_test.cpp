@@ -34,7 +34,7 @@ int main()
         getline(cin, str);
         vector<int> integers = take_int(str);
         temperatureList.push_back(integers[0]);
-        socList.push_back(soc[1]);
+        socList.push_back(integers[1]);
         cout<<str<<endl;
     }
     cout<<"....................................................................."<<endl;
