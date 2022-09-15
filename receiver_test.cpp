@@ -9,8 +9,8 @@
 
 using namespace std;
 
-vector<int> temperature;
-vector<int> soc;
+vector<int> temperatureList;
+vector<int> socList;
 
 vector<int> take_int(string str) {
     stringstream ss(str);
@@ -33,17 +33,17 @@ int main()
         string str;
         getline(cin, str);
         vector<int> integers = take_int(str);
-        temperature.push_back(integers[0]);
-        soc.push_back(soc[1]);
+        temperatureList.push_back(integers[0]);
+        socList.push_back(soc[1]);
         cout<<str<<endl;
     }
     cout<<"....................................................................."<<endl;
-    for(int i =0; i<temperature.size();i++) {
-        cout<< temperature[i]<<endl;
+    for(int i =0; i<temperatureList.size();i++) {
+        cout<< temperatureList[i]<<endl;
     }
    cout<<"....................................................................."<<endl;
-        for(int i =0; i<soc.size();i++) {
-        cout<< soc[i]<<endl;
+        for(int i =0; i<socList.size();i++) {
+        cout<< socList[i]<<endl;
     }
     
     cout<<"receiver end"<<endl;
