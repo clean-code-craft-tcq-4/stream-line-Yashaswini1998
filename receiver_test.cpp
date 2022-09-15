@@ -6,22 +6,23 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include "receiver.h"
 
 using namespace std;
 
 vector<int> temperatureList;
 vector<int> socList;
 
-vector<int> take_int(string str) {
-    stringstream ss(str);
-    vector<int> result;
-    char ch;
+vector<int> convertCsvStringToInteger(string stringToConvert) {
+    stringstream stringStreamToConvert(stringToConvert);
+    vector<int> convertedIntegerList;
+    char character;
     int tmp;
-    while(ss >> tmp) {
-        result.push_back(tmp);
-        ss >> ch;
+    while(stringStreamToConvert >> tmp) {
+        convertedIntegerList.push_back(tmp);
+        stringStreamToConvert >> character;
     }
-    return result;
+    return convertedIntegerList;
 }
 
 int main()
@@ -30,12 +31,12 @@ int main()
     cout<<"receiver start"<<endl;
     while(counter--)
     {
-        string str;
-        getline(cin, str);
-        vector<int> integers = take_int(str);
-        temperatureList.push_back(integers[0]);
-        socList.push_back(integers[1]);
-        cout<<str<<endl;
+        string stringFromSenderConsole;
+        getline(cin, stringFromSenderConsole);
+        vector<int> integerList = convertCsvStringToInteger(stringFromSenderConsole);
+        temperatureList.push_back(integerList[0]);
+        socList.push_back(integerList[1]);
+        cout<<stringFromSenderConsole<<endl;
     }
     cout<<"....................................................................."<<endl;
     for(int i =0; i<temperatureList.size();i++) {
