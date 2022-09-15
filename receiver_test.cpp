@@ -38,11 +38,11 @@ int main()
         cout<<str<<endl;
     }
     cout<<"....................................................................."<<endl;
-    for(int i =0; i<50;i++) {
+    for(int i =0; i<temperature.size();i++) {
         cout<< temperature[i]<<endl;
     }
    cout<<"....................................................................."<<endl;
-        for(int i =0; i<50;i++) {
+        for(int i =0; i<soc.size();i++) {
         cout<< soc[i]<<endl;
     }
     
