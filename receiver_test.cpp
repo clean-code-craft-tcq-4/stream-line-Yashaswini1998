@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    int counter =5;
+    int counter = 50;
     cout<<"receiver start"<<endl;
     while(counter--)
     {
