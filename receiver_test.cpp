@@ -1,7 +1,7 @@
 //#define CATCH_CONFIG_MAIN
 //#include "test/catch.hpp"
 
-#include <stdc++.h>
+#include <bits/stdc++.h>
 #include <cstdlib>
 #include <iostream>
 #include <vector>
@@ -10,6 +10,9 @@
 //#include "receiver.h"
 
 using namespace std;
+
+int findMaximumValue(vector<int> arryToFindMaxValue);
+int findMinimumValue(vector<int> arryToFindMinValue);
 
 vector<int> temperatureList;
 vector<int> socList;
