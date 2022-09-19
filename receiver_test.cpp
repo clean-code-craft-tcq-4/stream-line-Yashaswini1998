@@ -31,3 +31,17 @@ TEST_CASE("Test 1 : Read 0 lines from console, negative test case"){
   REQUIRE(minStateOfChargeValue == 0);   
 }
 
+TEST_CASE("Test 2 : Read 50 lines from console, positive test case"){
+  sensorData = receiveSensorDataFromConsole(0);
+  REQUIRE(sensorData.temperatureList.size() == 50);
+  REQUIRE(sensorData.stateOfChargeList.size() == 50);
+  maxTemperatureValue = findMaximumValue(sensorData.temperatureList);
+  minTemperatureValue = findMinimumValue(sensorData.temperatureList);
+  cout<< "maxTemperatureValue "<<maxTemperatureValue;
+  cout<< "minTemperatureValue "<<minTemperatureValue;
+  maxStateOfChargeValue = findMaximumValue(sensorData.stateOfChargeList);
+  minStateOfChargeValue = findMinimumValue(sensorData.stateOfChargeList);
+  cout<< "maxStateOfChargeValue "<<maxStateOfChargeValue;
+  cout<< "minStateOfChargeValue "<<minStateOfChargeValue;
+}
+
