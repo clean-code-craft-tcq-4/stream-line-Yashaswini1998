@@ -18,6 +18,7 @@ int maxStateOfChargeValue;
 int minStateOfChargeValue;
 
 TEST_CASE("Test 1 : Read 0 lines from console, negative test case"){
+  cout<< "Test to read 0 lines from console"<<endl;
   sensorData = receiveSensorDataFromConsole(0);
   REQUIRE(sensorData.temperatureList.size() == 0);
   REQUIRE(sensorData.stateOfChargeList.size() == 0);
@@ -25,23 +26,28 @@ TEST_CASE("Test 1 : Read 0 lines from console, negative test case"){
   minTemperatureValue = findMinimumValue(sensorData.temperatureList);
   REQUIRE(maxTemperatureValue == 0);
   REQUIRE(minTemperatureValue == 0);  
+  cout<< "maxTemperatureValue = "<<maxTemperatureValue<<endl;
+  cout<< "minTemperatureValue = "<<minTemperatureValue<<endl;
   maxStateOfChargeValue = findMaximumValue(sensorData.stateOfChargeList);
   minStateOfChargeValue = findMinimumValue(sensorData.stateOfChargeList);
   REQUIRE(maxStateOfChargeValue == 0);
-  REQUIRE(minStateOfChargeValue == 0);   
+  REQUIRE(minStateOfChargeValue == 0);
+  cout<< "maxStateOfChargeValue = "<<maxStateOfChargeValue<<endl;
+  cout<< "minStateOfChargeValue = "<<minStateOfChargeValue<<endl;
 }
 
 TEST_CASE("Test 2 : Read 50 lines from console, positive test case"){
+  cout<< "Test to read 50 lines from console"<<endl;
   sensorData = receiveSensorDataFromConsole(50);
   REQUIRE(sensorData.temperatureList.size() == 50);
   REQUIRE(sensorData.stateOfChargeList.size() == 50);
   maxTemperatureValue = findMaximumValue(sensorData.temperatureList);
   minTemperatureValue = findMinimumValue(sensorData.temperatureList);
-  cout<< "maxTemperatureValue "<<maxTemperatureValue<<endl;
-  cout<< "minTemperatureValue "<<minTemperatureValue<<endl;
+  cout<< "maxTemperatureValue = "<<maxTemperatureValue<<endl;
+  cout<< "minTemperatureValue = "<<minTemperatureValue<<endl;
   maxStateOfChargeValue = findMaximumValue(sensorData.stateOfChargeList);
   minStateOfChargeValue = findMinimumValue(sensorData.stateOfChargeList);
-  cout<< "maxStateOfChargeValue "<<maxStateOfChargeValue<<endl;
-  cout<< "minStateOfChargeValue "<<minStateOfChargeValue<<endl;
+  cout<< "maxStateOfChargeValue = "<<maxStateOfChargeValue<<endl;
+  cout<< "minStateOfChargeValue = "<<minStateOfChargeValue<<endl;
 }
 
