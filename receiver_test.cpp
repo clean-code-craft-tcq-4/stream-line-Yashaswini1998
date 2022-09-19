@@ -32,7 +32,7 @@ TEST_CASE("Test 1 : Read 0 lines from console, negative test case"){
 }
 
 TEST_CASE("Test 2 : Read 50 lines from console, positive test case"){
-  sensorData = receiveSensorDataFromConsole(0);
+  sensorData = receiveSensorDataFromConsole(50);
   REQUIRE(sensorData.temperatureList.size() == 50);
   REQUIRE(sensorData.stateOfChargeList.size() == 50);
   maxTemperatureValue = findMaximumValue(sensorData.temperatureList);
