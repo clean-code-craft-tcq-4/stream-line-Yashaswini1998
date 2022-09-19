@@ -16,8 +16,8 @@ struct Sensor{
   vector<int> stateOfChargeList;
 };
 
-Sensor receiveSensorDataFromConsole(int numberOfLinesToRead);
 vector<int> convertCsvStringToInteger(string stringToConvert);
+Sensor receiveSensorDataFromConsole(int numberOfLinesToRead);
 int findMaximumValue(vector<int> arryToFindMaxValue);
 int findMinimumValue(vector<int> arryToFindMinValue);
 
