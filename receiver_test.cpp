@@ -50,3 +50,15 @@ int main()
     cout<<"receiver end"<<endl;
     return 0;
 }
+
+int findMaximumValue(vector<int> arryToFindMaxValue)
+{
+  int maxValue = *max_element(arryToFindMaxValue.begin(), arryToFindMaxValue.end());
+  return maxValue;
+}
+
+int findMinimumValue(vector<int> arryToFindMinValue)
+{
+  int minValue = *min_element(arryToFindMinValue.begin(), arryToFindMinValue.end());
+  return minValue;
+}
