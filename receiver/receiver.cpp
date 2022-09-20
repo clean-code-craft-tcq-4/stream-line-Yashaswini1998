@@ -14,7 +14,7 @@ vector<int> convertCsvStringToInteger(string stringToConvert) {
     return convertedIntegerList;
 }
 
-Sensor receiveSensorDataFromConsole(int numberOfLinesToRead) {
+Sensor receiveAndSplitDataFromConsole(int numberOfLinesToRead) {
   Sensor sensorData;
   vector<int> integerList;
   cout<<"receiver start"<<endl;
