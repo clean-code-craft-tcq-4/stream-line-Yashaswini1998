@@ -45,5 +45,9 @@ TEST_CASE("Test 2 : Read 50 lines from console, positive test case"){
   minStateOfChargeValue = findMinimumValue(sensorData.stateOfChargeList);
   cout<< "maxStateOfChargeValue = "<<maxStateOfChargeValue<<endl;
   cout<< "minStateOfChargeValue = "<<minStateOfChargeValue<<endl;
+  float temperatureSMA = simpleMovingAverage(sensorData.temperatureList, 45, 49);
+  cout<<"temperatureSMA is : "<<temperatureSMA<<endl;
+  float stateOfChargeSMA = simpleMovingAverage(sensorData.stateOfChargeList, 45, 49);
+  cout<<"stateOfChargeSMA is : "<<stateOfChargeSMA<<endl;  
 }
 
