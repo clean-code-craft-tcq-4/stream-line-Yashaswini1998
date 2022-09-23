@@ -14,18 +14,35 @@ vector<int> convertCsvStringToInteger(string stringToConvert) {
     return convertedIntegerList;
 }
 
-Sensor receiveAndSplitDataFromConsole(int numberOfLinesToRead) {
-  Sensor sensorData;
-  vector<int> integerList;
+vector<string> receiveSensorDataFromConsole(int numberOfLinesToRead) {
+  vector<string> stringFromSenderConsole;
   cout<<"receiver start"<<endl;
   while(numberOfLinesToRead--) {
-    string stringFromSenderConsole;
-    getline(cin, stringFromSenderConsole);
-    integerList = convertCsvStringToInteger(stringFromSenderConsole);
-    sensorData.temperatureList.push_back(integerList[0]);
-    sensorData.stateOfChargeList.push_back(integerList[1]);
-    cout<<stringFromSenderConsole<<endl;
+    string tmp;
+    getline(cin, tmp);
+    stringFromSenderConsole.push_back(tmp);
+    cout<<tmp<<endl;
   }
   cout<<"receiver end"<<endl;
-  return sensorData;
+  return stringFromSenderConsole;
+}
+
+vector<int> extractTemperatureData(vector<string> stringFromSenderConsole) {
+    vector<int> integerList;
+    vector<int> temperatureList;
+    for(int counter = 0; counter < stringFromSenderConsole.size(); counter++) {
+        integerList = convertCsvStringToInteger(stringFromSenderConsole[counter]);
+        temperatureList.push_back(integerList[0]);
+    }
+    return temperatureList;
+}
+
+vector<int> extractStateOfChargeData(vector<string> stringFromSenderConsole) {
+    vector<int> integerList;
+    vector<int> stateOfChargeList;
+    for(int counter = 0; counter < stringFromSenderConsole.size(); counter++) {
+        integerList = convertCsvStringToInteger(stringFromSenderConsole[counter]);
+        stateOfChargeList.push_back(integerList[1]);
+    }
+    return stateOfChargeList;
 }
