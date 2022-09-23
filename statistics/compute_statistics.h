@@ -7,8 +7,11 @@
 
 using namespace std;
 
-int findMaximumValue(vector<int> arryToFindMaxValue);
-int findMinimumValue(vector<int> arryToFindMinValue);
-float simpleMovingAverage(vector<int> listToTest, int startIndex, int endIndex);
+class Statistics {
+public:
+  int findMaximumValue(vector<int> arryToFindMaxValue);
+  int findMinimumValue(vector<int> arryToFindMinValue);
+  float simpleMovingAverage(vector<int> listToTest, int startIndex, int endIndex);
+}
 
 #endif /*__COMPUTE_STATISTICS_H_ */
