@@ -1,6 +1,6 @@
 #include "compute_statistics.h"
 
-int findMaximumValue(vector<int> arryToFindMaxValue) {
+int Statistics :: findMaximumValue(vector<int> arryToFindMaxValue) {
   int maxValue = 0;
   if(arryToFindMaxValue.size() > 0) {
     maxValue = *max_element(arryToFindMaxValue.begin(), arryToFindMaxValue.end());
@@ -8,7 +8,7 @@ int findMaximumValue(vector<int> arryToFindMaxValue) {
   return maxValue;
 }
 
-int findMinimumValue(vector<int> arryToFindMinValue) {
+int Statistics :: findMinimumValue(vector<int> arryToFindMinValue) {
   int minValue = 0;
   if(arryToFindMinValue.size() > 0) {
     minValue = *min_element(arryToFindMinValue.begin(), arryToFindMinValue.end());
@@ -16,7 +16,7 @@ int findMinimumValue(vector<int> arryToFindMinValue) {
   return minValue;
 }
 
-float simpleMovingAverage(vector<int> listToTest, int startIndex, int endIndex) {
+float Statistics :: simpleMovingAverage(vector<int> listToTest, int startIndex, int endIndex) {
    int numberOfElements = (endIndex - startIndex)+1;
    float average = 0.0;
    float total = 0;
