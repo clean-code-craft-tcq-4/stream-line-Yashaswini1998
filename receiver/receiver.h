@@ -11,12 +11,9 @@
 
 using namespace std;
 
-struct Sensor{
-  vector<int> temperatureList;
-  vector<int> stateOfChargeList;
-};
-
 vector<int> convertCsvStringToInteger(string stringToConvert);
-Sensor receiveAndSplitDataFromConsole(int numberOfLinesToRead);
+vector<string> receiveSensorDataFromConsole(int numberOfLinesToRead);
+vector<int> extractTemperatureData(vector<string> stringFromSenderConsole);
+vector<int> extractStateOfChargeData(vector<string> stringFromSenderConsole); 
 
 #endif /*__RECEIVER_H_ */
