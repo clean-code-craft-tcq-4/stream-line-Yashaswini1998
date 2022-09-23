@@ -12,7 +12,9 @@
 
 using namespace std;
 
-Sensor sensorData;
+vector<string> stringFromSenderConsole;
+vector<int> temperatureList;
+vector<int> stateOfChargeList;
 int maxTemperatureValue;
 int minTemperatureValue;
 int maxStateOfChargeValue;
@@ -22,35 +24,37 @@ Statistics stateOfChargeStatistics;
 
 TEST_CASE("Test 1 : Read 0 lines from console, negative test case"){
   cout<< "Test to read 0 lines from console"<<endl;
-  sensorData = receiveAndSplitDataFromConsole(0);
-  REQUIRE(sensorData.temperatureList.size() == 0);
-  REQUIRE(sensorData.stateOfChargeList.size() == 0);
-  maxTemperatureValue = temperatureStatistics.findMaximumValue(sensorData.temperatureList);
-  minTemperatureValue = temperatureStatistics.findMinimumValue(sensorData.temperatureList);
+  stringFromSenderConsole = receiveSensorDataFromConsole(0);
+  REQUIRE(stringFromSenderConsole.size() == 0);
+  temperatureList = extractTemperatureData(vector<string> stringFromSenderConsole);
+  maxTemperatureValue = temperatureStatistics.findMaximumValue(temperatureList);
+  minTemperatureValue = temperatureStatistics.findMinimumValue(temperatureList);
   REQUIRE(maxTemperatureValue == 0);
   REQUIRE(minTemperatureValue == 0);  
-  maxStateOfChargeValue = stateOfChargeStatistics.findMaximumValue(sensorData.stateOfChargeList);
-  minStateOfChargeValue = stateOfChargeStatistics.findMinimumValue(sensorData.stateOfChargeList);
+  stateOfChargeList = extractStateOfChargeData(vector<string> stringFromSenderConsole); 
+  maxStateOfChargeValue = stateOfChargeStatistics.findMaximumValue(stateOfChargeList);
+  minStateOfChargeValue = stateOfChargeStatistics.findMinimumValue(stateOfChargeList);
   REQUIRE(maxStateOfChargeValue == 0);
   REQUIRE(minStateOfChargeValue == 0);
 }
 
 TEST_CASE("Test 2 : Read 50 lines from console, positive test case"){
   cout<< "Test to read 50 lines from console"<<endl;
-  sensorData = receiveAndSplitDataFromConsole(50);
-  REQUIRE(sensorData.temperatureList.size() == 50);
-  REQUIRE(sensorData.stateOfChargeList.size() == 50);
-  maxTemperatureValue = temperatureStatistics.findMaximumValue(sensorData.temperatureList);
-  minTemperatureValue = temperatureStatistics.findMinimumValue(sensorData.temperatureList);
+  stringFromSenderConsole = receiveSensorDataFromConsole(50);
+  REQUIRE(stringFromSenderConsole.size() == 50);
+  temperatureList = extractTemperatureData(vector<string> stringFromSenderConsole);
+  maxTemperatureValue = temperatureStatistics.findMaximumValue(temperatureList);
+  minTemperatureValue = temperatureStatistics.findMinimumValue(temperatureList);
   cout<< "maxTemperatureValue = "<<maxTemperatureValue<<endl;
   cout<< "minTemperatureValue = "<<minTemperatureValue<<endl;
-  maxStateOfChargeValue = stateOfChargeStatistics.findMaximumValue(sensorData.stateOfChargeList);
-  minStateOfChargeValue = stateOfChargeStatistics.findMinimumValue(sensorData.stateOfChargeList);
+  stateOfChargeList = extractStateOfChargeData(vector<string> stringFromSenderConsole); 
+  maxStateOfChargeValue = stateOfChargeStatistics.findMaximumValue(stateOfChargeList);
+  minStateOfChargeValue = stateOfChargeStatistics.findMinimumValue(stateOfChargeList);
   cout<< "maxStateOfChargeValue = "<<maxStateOfChargeValue<<endl;
   cout<< "minStateOfChargeValue = "<<minStateOfChargeValue<<endl;
-  float temperatureSMA = temperatureStatistics.simpleMovingAverage(sensorData.temperatureList, 45, 49);
+  float temperatureSMA = temperatureStatistics.simpleMovingAverage(temperatureList, 45, 49);
   cout<<"temperatureSMA is : "<<temperatureSMA<<endl;
-  float stateOfChargeSMA = stateOfChargeStatistics.simpleMovingAverage(sensorData.stateOfChargeList, 45, 49);
+  float stateOfChargeSMA = stateOfChargeStatistics.simpleMovingAverage(stateOfChargeList, 45, 49);
   cout<<"stateOfChargeSMA is : "<<stateOfChargeSMA<<endl;  
 }
 
