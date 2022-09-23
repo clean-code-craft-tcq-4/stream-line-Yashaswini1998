@@ -18,8 +18,5 @@ struct Sensor{
 
 vector<int> convertCsvStringToInteger(string stringToConvert);
 Sensor receiveAndSplitDataFromConsole(int numberOfLinesToRead);
-int findMaximumValue(vector<int> arryToFindMaxValue);
-int findMinimumValue(vector<int> arryToFindMinValue);
-float simpleMovingAverage(vector<int> listToTest, int startIndex, int endIndex);
 
 #endif /*__RECEIVER_H_ */
