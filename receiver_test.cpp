@@ -8,6 +8,7 @@
 #include <string>
 #include <sstream>
 #include "receiver/receiver.h"
+#include "statistics/compute_statistics.h"
 
 using namespace std;
 
