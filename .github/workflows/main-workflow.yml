@@ -32,7 +32,7 @@ jobs:
         flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
         
     - name: build
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c* ./receiver/*.c*         
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c* ./receiver/*.c*  ./statistics/*.c*       
     - name: Run
       #run: python stream_data.py
       run: python stream_data.py | ./testchecker
